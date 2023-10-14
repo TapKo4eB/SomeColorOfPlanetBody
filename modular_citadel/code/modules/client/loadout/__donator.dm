@@ -5,6 +5,7 @@
 	slot = ITEM_SLOT_BACKPACK
 	path = /obj/item/bikehorn/golden
 	category = LOADOUT_CATEGORY_DONATOR
+	donator_group_id = DONATOR_GROUP_TIER_1
 	ckeywhitelist = list("This entry should never appear with this variable set.") //If it does, then that means somebody fucked up the whitelist system pretty hard
 
 /datum/gear/donator/pet
@@ -37,18 +38,18 @@
 
 /datum/gear/donator/jukebox
 	name = "Handled Jukebox"
-	slot = ITEM_SLOT_MASK
+	slot = ITEM_SLOT_BACKPACK
 	path = /obj/item/jukebox
 	ckeywhitelist = list()
-	cost = 2
+	cost = 4
 	donator_group_id = DONATOR_GROUP_TIER_1
 
-/datum/gear/donator/emagged_jukebox
-	name = "Emagged Handled Jukebox"
-	slot = ITEM_SLOT_MASK
-	path = /obj/item/jukebox/emagged
+/datum/gear/donator/purple_zippo
+	name = "Purple Zippo"
+	slot = ITEM_SLOT_BACKPACK
+	path = /obj/item/lighter/purple
 	ckeywhitelist = list()
-	cost = 8
+	cost = 1
 	donator_group_id = DONATOR_GROUP_TIER_1
 
 /datum/gear/donator/raiqbawks

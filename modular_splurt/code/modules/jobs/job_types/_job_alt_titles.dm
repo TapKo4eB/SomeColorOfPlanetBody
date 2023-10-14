@@ -134,7 +134,6 @@
 		"Volunteer",
 		"Morale Officer",
 		"Stripper",
-		"Escort",
 		"Tourist",
 		"SolFed Tourist",
 		"NRI Tourist",
@@ -149,7 +148,10 @@
 		"Stress Relief",
 		"Freeloader",
 		"Syndicate Specialist",
-		"Station Pet"
+		"Station Pet",
+		"Whore",
+		"Slut",
+		"Slave"
 	)
 	LAZYADD(alt_titles, extra_titles)
 	. = ..()
@@ -392,7 +394,7 @@
 		"Security Agent",
 		"Probation Officer",
 		"Guardsman",
-		"Civil Protection Cosplayer",
+		"Civil Protection",
 		"Police Officer",
 		"Tyranny Lover",
 		"Cerberus",

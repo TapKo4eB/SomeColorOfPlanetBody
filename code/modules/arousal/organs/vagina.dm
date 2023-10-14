@@ -1,5 +1,5 @@
 /obj/item/organ/genital/vagina
-	name = "Вагина"
+	name = "вагина"
 	desc = "A female reproductive organ."
 	icon = 'icons/obj/genitals/vagina.dmi'
 	icon_state = ORGAN_SLOT_VAGINA
@@ -76,3 +76,5 @@
 	toggle_visibility(D.features["vag_visibility"], FALSE)
 	if(D.features["vag_stuffing"])
 		toggle_visibility(GEN_ALLOW_EGG_STUFFING, FALSE)
+	if(D.features["vag_accessible"])
+		toggle_accessibility(TRUE)

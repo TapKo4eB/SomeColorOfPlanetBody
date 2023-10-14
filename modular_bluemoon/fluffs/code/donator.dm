@@ -44,6 +44,20 @@
 	ckeywhitelist = list("reaperdb")
 	subcategory = LOADOUT_SUBCATEGORIES_DON02
 
+/datum/gear/donator/bm/ellys_suit
+	name = "Ellys Costume"
+	slot = ITEM_SLOT_ICLOTHING
+	path = /obj/item/clothing/under/donator/bm/ellys_suit
+	ckeywhitelist = list("chowny")
+	subcategory = LOADOUT_SUBCATEGORIES_DON12
+
+/datum/gear/donator/bm/ellys_hoodie
+	name = "Ellys Hoodie"
+	slot = ITEM_SLOT_OCLOTHING
+	path = /obj/item/clothing/suit/donator/bm/ellys_hoodie
+	ckeywhitelist = list("chowny")
+	subcategory = LOADOUT_SUBCATEGORIES_DON12
+
 /datum/gear/donator/bm/modern_watch
 	name = "modern watch"
 	slot = ITEM_SLOT_GLOVES
@@ -160,7 +174,7 @@
 	name = "Luftkuss Kit"
 	slot = ITEM_SLOT_BACKPACK
 	path = /obj/item/old_kit
-	ckeywhitelist = list("stgs", "sodastrike", "dolbajob", "hazzi", "krashly")
+	ckeywhitelist = list("stgs", "sodastrike", "dolbajob", "hazzi", "krashly", "fiaskin")
 	subcategory = LOADOUT_SUBCATEGORIES_DON12
 
 /datum/gear/donator/bm/Friskis_Mask
@@ -216,7 +230,14 @@
 	name = "Araki Nue Kit"
 	slot = ITEM_SLOT_BACKPACK
 	path = /obj/item/nue_kit
-	ckeywhitelist = list("vulpshiro", "dolbajob", "ordinarylife")
+	ckeywhitelist = list("vulpshiro", "dolbajob", "ordinarylife", "z67")
+	subcategory = LOADOUT_SUBCATEGORIES_DON17
+
+/datum/gear/donator/bm/stunblade
+	name = "Stunblade Kit"
+	slot = ITEM_SLOT_BACKPACK
+	path = /obj/item/stunblade_kit
+	ckeywhitelist = list("vulpshiro", "dolbajob", "ordinarylife", "leony24", "stgs", "lonofera", "z67")
 	subcategory = LOADOUT_SUBCATEGORIES_DON17
 
 /datum/gear/donator/bm/aviator_helmet
@@ -237,6 +258,13 @@
 	name = "Flektarn Combat Uniform"
 	slot = ITEM_SLOT_ICLOTHING
 	path = /obj/item/clothing/under/donator/bm/flektarn
+	ckeywhitelist = list("vulpshiro", "dolbajob", "stgs", "leony24")
+	subcategory = LOADOUT_SUBCATEGORIES_DON16
+
+/datum/gear/donator/bm/flektarn_casual
+	name = "Flektarn Casual Uniform"
+	slot = ITEM_SLOT_ICLOTHING
+	path = /obj/item/clothing/under/donator/bm/flektarn_casual
 	ckeywhitelist = list("vulpshiro", "dolbajob", "stgs", "leony24")
 	subcategory = LOADOUT_SUBCATEGORIES_DON16
 
@@ -265,7 +293,14 @@
 	name = "Shiro Silverhand Jacket"
 	slot = ITEM_SLOT_OCLOTHING
 	path = /obj/item/clothing/suit/donator/bm/SH_jacket
-	ckeywhitelist = list("vulpshiro", "dolbajob", "ordinarylife")
+	ckeywhitelist = list("vulpshiro", "dolbajob", "ordinarylife", "z67")
+	subcategory = LOADOUT_SUBCATEGORIES_DON17
+
+/datum/gear/donator/bm/SH_glasses
+	name = "Shiro Silverhand Glasses"
+	slot = ITEM_SLOT_EYES
+	path = /obj/item/clothing/glasses/sunglasses/shiro
+	ckeywhitelist = list("vulpshiro", "dolbajob", "ordinarylife", "z67")
 	subcategory = LOADOUT_SUBCATEGORIES_DON17
 
 /datum/gear/donator/bm/emma_plush
@@ -288,6 +323,13 @@
 	path = /obj/item/toy/plush/mammal/fox/emma/raita
 	ckeywhitelist = list("vulpshiro", "dolbajob", "ordinarylife")
 	subcategory = LOADOUT_SUBCATEGORIES_DON17
+
+/datum/gear/donator/bm/who_plush
+	name = "Security Officer Plush"
+	slot = ITEM_SLOT_BACKPACK
+	path = /obj/item/toy/plush/nukeplushie/who
+	ckeywhitelist = list("stgs")
+	subcategory = LOADOUT_SUBCATEGORIES_DON12
 
 /datum/gear/donator/bm/noonar
 	name = "Syndicate jacket"
@@ -315,4 +357,88 @@
 	slot = ITEM_SLOT_BACKPACK
 	path = /obj/item/pomogator_kit
 	ckeywhitelist = list("danik10p")
+	subcategory = LOADOUT_SUBCATEGORIES_DON12
+
+/datum/gear/donator/bm/sponge
+	name = "Sponge Modification Kit"
+	slot = ITEM_SLOT_BACKPACK
+	path = /obj/item/sponge_kit
+	ckeywhitelist = list("danik10p")
+	subcategory = LOADOUT_SUBCATEGORIES_DON12
+
+/datum/gear/donator/bm/battle_coat
+	name = "Battle Coat"
+	slot = ITEM_SLOT_ICLOTHING
+	path = /obj/item/clothing/under/donator/bm/battle_coat
+	ckeywhitelist = list("ghoststalin", "g3234")
+	subcategory = LOADOUT_SUBCATEGORIES_DON12
+
+/datum/gear/donator/bm/sports_jacket
+	name = "Sports Jacket"
+	slot = ITEM_SLOT_OCLOTHING
+	path = /obj/item/clothing/suit/donator/bm/sports_jacket
+	ckeywhitelist = list("ghoststalin", "g3234")
+	subcategory = LOADOUT_SUBCATEGORIES_DON12
+
+/datum/gear/donator/bm/harness
+	name = "Harness Armor Modification Kit"
+	slot = ITEM_SLOT_BACKPACK
+	path = /obj/item/harness_kit
+	ckeywhitelist = list("ghoststalin", "g3234")
+	subcategory = LOADOUT_SUBCATEGORIES_DON12
+
+/datum/gear/donator/bm/cross_shielded
+	name = "Shielded Cross"
+	slot = ITEM_SLOT_NECK
+	path = /obj/item/clothing/neck/tie/cross/shielded
+	ckeywhitelist = list("kalifasun", "dofalt")
+	subcategory = LOADOUT_SUBCATEGORIES_DON21
+
+/datum/gear/donator/bm/miner_plushie
+	name = "Miner Plushie"
+	slot = ITEM_SLOT_BACKPACK
+	path = /obj/item/toy/plush/miner
+	ckeywhitelist = list("cheburek228")
+	subcategory = LOADOUT_SUBCATEGORIES_DON12
+
+/datum/gear/donator/bm/omega_plushie
+	name = "Omega Plushie"
+	slot = ITEM_SLOT_BACKPACK
+	path = /obj/item/toy/plush/nukeplushie/omega
+	ckeywhitelist = list("malopharan")
+	subcategory = LOADOUT_SUBCATEGORIES_DON12
+
+/datum/gear/donator/bm/nri_drg
+	name = "Covert Ops Tactical Uniform"
+	slot = ITEM_SLOT_ICLOTHING
+	path = /obj/item/clothing/under/donator/bm/nri_drg
+	ckeywhitelist = list("vulpshiro", "dolbajob", "stgs", "leony24", "krashly")
+	subcategory = LOADOUT_SUBCATEGORIES_DON12
+
+/datum/gear/donator/bm/nri_drg_head
+	name = "Covert Ops Headgear"
+	slot = ITEM_SLOT_HEAD
+	path = /obj/item/clothing/head/donator/bm/nri_drg_head
+	ckeywhitelist = list("vulpshiro", "dolbajob", "stgs", "leony24", "krashly")
+	subcategory = LOADOUT_SUBCATEGORIES_DON12
+
+/datum/gear/donator/bm/booma_patch
+	name = "Boomah Patch"
+	slot = ITEM_SLOT_BACKPACK
+	path = /obj/item/clothing/accessory/booma_patch
+	ckeywhitelist = list("vulpshiro", "dolbajob", "ordinarylife")
+	subcategory = LOADOUT_SUBCATEGORIES_DON17
+
+/datum/gear/donator/bm/booma
+	name = "Boomah Turtleneck"
+	slot = ITEM_SLOT_ICLOTHING
+	path = /obj/item/clothing/under/donator/bm/booma
+	ckeywhitelist = list("vulpshiro", "dolbajob", "ordinarylife")
+	subcategory = LOADOUT_SUBCATEGORIES_DON17
+
+/datum/gear/donator/bm/vance_plush
+	name = "Vance Plush"
+	slot = ITEM_SLOT_BACKPACK
+	path = /obj/item/toy/plush/sergal/judas/vance
+	ckeywhitelist = list("littlemouse2729")
 	subcategory = LOADOUT_SUBCATEGORIES_DON12

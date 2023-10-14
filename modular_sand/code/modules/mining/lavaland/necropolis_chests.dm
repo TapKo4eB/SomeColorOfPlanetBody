@@ -41,7 +41,7 @@
 
 /obj/item/shield/riot/tower/swat/gladiator/AltClick(mob/user)
 	if(isliving(user))
-		if(do_after(user, 20, target = src))
+		if(do_after(user, 2 SECONDS, src))
 			new /obj/vehicle/ridden/lavaboat/dragon/gladiator(get_turf(user))
 			qdel(src)
 
@@ -61,7 +61,7 @@
 /obj/vehicle/ridden/lavaboat/dragon/gladiator/AltClick(mob/user)
 	..()
 	if(isliving(user))
-		if(do_after(user, 20, target = src))
+		if(do_after(user, 2 SECONDS, src))
 			new /obj/item/shield/riot/tower/swat/gladiator(get_turf(user))
 			qdel(src)
 
@@ -146,7 +146,6 @@
 	damage_type = BRUTE
 	hitsound = 'sound/effects/splat.ogg'
 	knockdown = 0
-	var/chain
 
 /obj/item/projectile/heckhook/fire(setAngle)
 	if(firer)
@@ -344,7 +343,7 @@
 /obj/item/clothing/suit/space/hardsuit/deathsquad/praetor
 	name = "Praetor Suit"
 	desc = "And those that tasted the bite of his sword named him... The Doom Slayer."
-	armor = list(MELEE = 70, BULLET = 40, LASER = 10, ENERGY = 10, BOMB = 50, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, MAGIC = 50)
+	armor = list(MELEE = 70, BULLET = 40, LASER = 10, ENERGY = 10, BOMB = 50, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, MAGIC = 50, WOUND = 40)
 	strip_delay = 130
 	slowdown = 0
 	icon = 'modular_sand/icons/obj/clothing/suits.dmi'
@@ -353,21 +352,20 @@
 	anthro_mob_worn_overlay = 'modular_sand/icons/mob/clothing/suit_digi.dmi'
 	item_state = "praetor"
 	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/deathsquad/praetor
-	mutantrace_variation = STYLE_DIGITIGRADE | STYLE_NO_ANTHRO_ICON
 	resistance_flags = FIRE_PROOF | LAVA_PROOF | ACID_PROOF | GOLIATH_RESISTANCE
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	clothing_flags = THICKMATERIAL // no space protection
+	tail_state = "praetor"
 
 /obj/item/clothing/head/helmet/space/hardsuit/deathsquad/praetor
 	name = "Praetor Suit helmet"
 	desc = "That's one doomed space marine."
-	armor = list(MELEE = 70, BULLET = 40, LASER = 10, ENERGY = 10, BOMB = 50, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, MAGIC = 50)
+	armor = list(MELEE = 70, BULLET = 40, LASER = 10, ENERGY = 10, BOMB = 50, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, MAGIC = 50, WOUND = 40)
 	strip_delay = 130
 	icon = 'modular_sand/icons/obj/clothing/hats.dmi'
 	icon_state = "praetor"
 	mob_overlay_icon = 'modular_sand/icons/mob/clothing/head.dmi'
 	anthro_mob_worn_overlay  = 'modular_sand/icons/mob/clothing/head_muzzled.dmi'
-	mutantrace_variation = STYLE_MUZZLE | STYLE_NO_ANTHRO_ICON
 	resistance_flags = FIRE_PROOF | LAVA_PROOF | ACID_PROOF | GOLIATH_RESISTANCE
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	clothing_flags = THICKMATERIAL | ALLOWINTERNALS // no space protection
@@ -1035,9 +1033,9 @@
 
 //Apply a temp buff until the necklace is used
 /obj/item/clothing/neck/necklace/necklace_of_the_forsaken/proc/temp_buff(mob/living/carbon/human/user)
-	to_chat(user, "<span class='warning'>You feel as if you have a second chance at something, but you're not sure what.</span>")
-	if(do_after(user, 40, target = user))
-		to_chat(user, "<span class='notice'>The ember warms you...</span>")
+	to_chat(user, span_warning("You feel as if you have a second chance at something, but you're not sure what."))
+	if(do_after(user, 4 SECONDS, user))
+		to_chat(user, span_notice("The ember warms you..."))
 		ADD_TRAIT(user, TRAIT_NOHARDCRIT, "necklace_of_the_forsaken")//less chance of being gibbed
 		active_owner = user
 

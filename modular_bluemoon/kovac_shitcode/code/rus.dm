@@ -124,7 +124,7 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 	actions_types = list()
-	mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
+	//mutantrace_variation = STYLE_DIGITIGRADE|STYLE_NO_ANTHRO_ICON
 
 /obj/item/clothing/suit/space/hardsuit/ert/alert/nri
 	name = "Ratnik-4 hardsuit"
@@ -137,6 +137,62 @@
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	max_heat_protection_temperature = FIRE_IMMUNITY_MAX_TEMP_PROTECT
 
+//// NRI Hardsuit - Advanced - with healing (vox-like) feature
+/obj/item/clothing/head/helmet/space/hardsuit/ert/alert/nri/adv
+	name = "Ratnik-4M hardsuit helmet"
+	icon_state = "hardsuit0-russians"
+	item_state = "hardsuit0-russians"
+	hardsuit_type = "russiansuits"
+	armor = list(MELEE = 70, BULLET = 65, LASER = 60, ENERGY = 60, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 60)
+
+/obj/item/clothing/suit/space/hardsuit/ert/alert/nri/adv
+	name = "Ratnik-4M 'Voskhod' hardsuit"
+	icon_state = "russiansuits"
+	item_state = "russiansuits"
+	helmettype = /obj/item/clothing/head/helmet/space/hardsuit/ert/alert/nri/adv
+	armor = list(MELEE = 70, BULLET = 65, LASER = 60, ENERGY = 60, BOMB = 80, BIO = 100, RAD = 100, FIRE = 100, ACID = 100, WOUND = 60)
+	var/mob/living/carbon/human/wearer
+
+/obj/item/clothing/suit/space/hardsuit/ert/alert/nri/adv/equipped(mob/user, slot)
+	..()
+	if(slot == ITEM_SLOT_OCLOTHING)
+		wearer = user
+		START_PROCESSING(SSobj, src)
+		playsound(get_turf(src), 'sound/rig/shortbeep.ogg', 100, 1, 1)
+		to_chat(wearer, "<span class='warning'>Медицинский интерфейс костюма загружен. Убедитесь, что шлем костюма экипирован.</span>")
+
+/obj/item/clothing/suit/space/hardsuit/ert/alert/nri/adv/dropped(mob/user)
+	wearer = null
+	STOP_PROCESSING(SSobj, src)
+	..()
+
+/obj/item/clothing/suit/space/hardsuit/ert/alert/nri/adv/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	wearer = null
+	return ..()
+
+/obj/item/clothing/suit/space/hardsuit/ert/alert/nri/adv/process(damage)
+	if(!wearer)
+		STOP_PROCESSING(SSobj, src)
+		return
+	if(wearer.stat == DEAD)
+		STOP_PROCESSING(SSobj, src)
+		return
+	if(!istype(wearer.head, /obj/item/clothing/head/helmet/space/hardsuit/ert/alert/nri/adv))
+		return
+	if(damage > 9)
+		wearer.adjustToxLoss(0.7) // this will kill the wearer after a while if the suit is not repaired or removed
+	else if(wearer.reagents.get_reagent_amount(/datum/reagent/medicine/tricordrazine) > 5)
+		return // safe tricordrazine injection
+	if(damage > 19)
+		wearer.adjustToxLoss(1) // this will kill the wearer much faster
+	wearer.reagents.add_reagent(/datum/reagent/medicine/tricordrazine, REAGENTS_METABOLISM)
+
+// green webbing
+/obj/item/storage/belt/military/russianweb
+	desc = "A set of tactical webbing worn by NRI Spetsnaz troopers."
+	icon_state = "russianweb"
+	item_state = "russianweb"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -250,3 +306,21 @@
 	neck = /obj/item/clothing/neck/cloak/nri_cloak
 	r_hand = /obj/item/gun/ballistic/shotgun/rsh12
 	backpack_contents = list(/obj/item/melee/classic_baton/telescopic=1, /obj/item/poster/nri=5, /obj/item/ammo_box/shotgun/loaded/buckshot=4)
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////area
+
+//NRI Antagonist clothes and stuff
+
+/obj/item/clothing/under/syndicate/nri_drg
+	name = "covert ops tactical uniform"
+	desc = "A non-descript and slightly suspicious looking uniform."
+	icon_state = "nri_drg"
+	item_state = "nri_drg"
+	icon = 'modular_bluemoon/kovac_shitcode/icons/rus/obj_drg.dmi'
+	mob_overlay_icon = 'modular_bluemoon/kovac_shitcode/icons/rus/mob_drg.dmi'
+	anthro_mob_worn_overlay = 'modular_bluemoon/kovac_shitcode/icons/rus/mob_drg_digi.dmi'
+	can_adjust = FALSE
+	unique_reskin = list(
+		"Camo" = list("icon_state" = "nri_drg"),
+		"Turtleneck" = list("icon_state" = "nri_drg_alt")
+	)

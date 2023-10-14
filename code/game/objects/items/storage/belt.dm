@@ -76,7 +76,9 @@
 		/obj/item/carpentry/borer,
 		/obj/item/carpentry/glue,
 		/obj/item/inducer,
-		/obj/item/lightreplacer
+		/obj/item/lightreplacer,
+		/obj/item/healthanalyzer, /// Для робототехников
+		/obj/item/surgical_drapes ///
 		))
 	STR.can_hold = can_hold
 
@@ -253,7 +255,8 @@
 		/obj/item/melee/classic_baton/telescopic,
 		/obj/item/radio,
 		/obj/item/clothing/gloves,
-		/obj/item/restraints/legcuffs/bola
+		/obj/item/restraints/legcuffs/bola,
+		/obj/item/holosign_creator/security
 		))
 
 /obj/item/storage/belt/security/full/PopulateContents()
@@ -617,7 +620,8 @@
 		/obj/item/paint/paint_remover,
 		/obj/item/assembly/mousetrap,
 		/obj/item/screwdriver,
-		/obj/item/stack/cable_coil
+		/obj/item/stack/cable_coil,
+		/obj/item/holosign_creator
 		))
 
 /obj/item/storage/belt/janitor/ert_maid
@@ -642,7 +646,7 @@
 /obj/item/storage/belt/bandolier/ComponentInitialize()
 	. = ..()
 	var/datum/component/storage/STR = GetComponent(/datum/component/storage)
-	STR.max_items = 18
+	STR.max_items = 25
 	STR.display_numerical_stacking = TRUE
 	STR.can_hold = typecacheof(list(
 		/obj/item/ammo_casing

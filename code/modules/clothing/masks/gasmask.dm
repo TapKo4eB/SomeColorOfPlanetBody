@@ -62,7 +62,7 @@
 	tint = 2
 	armor = list(MELEE = 10, BULLET = 0, LASER = 0,ENERGY = 0, BOMB = 0, BIO = 0, RAD = 0, FIRE = 100, ACID = 55)
 	actions_types = list(/datum/action/item_action/toggle)
-	flags_inv = HIDEEARS|HIDEEYES|HIDEFACE
+	flags_inv = HIDEEYES|HIDEFACE //BM Changes
 	flags_cover = MASKCOVERSEYES
 	visor_flags_inv = HIDEEYES
 	visor_flags_cover = MASKCOVERSEYES
@@ -86,7 +86,12 @@
 	desc = "A modernised version of the classic design, this mask will not only filter out toxins but it can also be connected to an air supply."
 	icon_state = "plaguedoctor"
 	item_state = "gas_mask"
-	armor = list(MELEE = 0, BULLET = 0, LASER = 2,ENERGY = 2, BOMB = 0, BIO = 75, RAD = 0, FIRE = 0, ACID = 0)
+	armor = list(MELEE = 0, BULLET = 0, LASER = 5, ENERGY = 5, BOMB = 0, BIO = 100, RAD = 0, FIRE = 0, ACID = 0)
+
+/obj/item/clothing/mask/gas/plaguedoctor/jason
+	name = "Jason Mask"
+	desc = "Маска небезызвестного маньяка."
+	icon_state = "jason"
 
 /obj/item/clothing/mask/gas/syndicate
 	name = "Syndicate Mask"

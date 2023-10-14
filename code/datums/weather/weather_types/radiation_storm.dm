@@ -37,7 +37,7 @@
 /datum/weather/rad_storm/end()
 	if(..())
 		return
-	priority_announce("The radiation threat has passed. Please return to your workplaces.", "ВНИМАНИЕ: АНОМАЛИЯ")
+	priority_announce("Облако радиации миновало Космическю Станцию. Пожалуйста, вернитесь на свои рабочие места.", "ВНИМАНИЕ: АНОМАЛИЯ")
 	status_alarm(FALSE)
 
 /datum/weather/rad_storm/proc/status_alarm(active)	//Makes the status displays show the radiation warning for those who missed the announcement.

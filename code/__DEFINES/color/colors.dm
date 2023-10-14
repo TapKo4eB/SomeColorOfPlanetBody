@@ -49,6 +49,7 @@
 #define COLOR_DARK_CYAN "#00A2FF"
 #define COLOR_TEAL "#008080"
 #define COLOR_BLUE "#0000FF"
+#define LIGHT_COLOR_FAINT_BLUE "#DEEFFF"
 #define COLOR_STRONG_BLUE "#1919c8"
 #define COLOR_BRIGHT_BLUE "#2CB2E8"
 #define COLOR_MODERATE_BLUE "#555CC2"
@@ -171,6 +172,7 @@
 #define LIGHT_COLOR_HOLY_MAGIC "#FFF743"
 /// deep crimson
 #define LIGHT_COLOR_BLOOD_MAGIC "#D00000"
+#define COLOR_DRIED_TAN "#ad7257"
 
 /* These ones aren't a direct colour like the ones above, because nothing would fit */
 /// Warm orange color, leaning strongly towards yellow. rgb(250, 160, 25)
@@ -211,3 +213,5 @@
 /// Диван, ебать.
 #define SOFA_BROWN "#a75400"
 #define SOFA_MAROON "#830000"
+
+GLOBAL_LIST_INIT(random_color_list, list("#00aedb","#a200ff","#f47835","#d41243","#d11141","#00b159","#00aedb","#f37735","#ffc425","#008744","#0057e7","#d62d20","#ffa700"))

@@ -96,7 +96,6 @@
 		. += cult_give_item(/obj/item/stack/sheet/runed_metal/ten, H)
 	to_chat(owner, "These will help you start the cult on this station. Use them well, and remember - you are not the only one.</span>")
 
-
 /datum/antagonist/cult/proc/cult_give_item(obj/item/item_path, mob/living/carbon/human/mob)
 	var/list/slots = list(
 		"backpack" = ITEM_SLOT_BACKPACK,
@@ -161,8 +160,8 @@
 	SSticker.mode.cult -= owner
 	SSticker.mode.update_cult_icons_removed(owner)
 	if(!silent)
-		owner.current.visible_message("<span class='deconversion_message'>[owner.current] looks like [owner.current.p_theyve()] just reverted to [owner.current.p_their()] old faith!</span>", null, null, null, owner.current)
-		to_chat(owner.current, "<span class='userdanger'>An unfamiliar white light flashes through your mind, cleansing the taint of the Geometer and all your memories as her servant.</span>")
+		owner.current.visible_message("<span class='deconversion_message'>[owner.current] выглядит так, будто бы верну[owner.current.ru_sya()] в своё исходное состояние!</span>", null, null, null, owner.current)
+		to_chat(owner.current, "<span class='userdanger'>Незнакомый белый свет вспыхивает в вашем сознании, очищая его от следов извне и всех ваших воспоминаний под Её покровительством...</span>")
 		owner.current.log_message("has renounced the cult of Nar'Sie!", LOG_ATTACK, color="#960000")
 	if(cult_team?.blood_target && cult_team.blood_target_image && owner.current.client)
 		owner.current.client.images -= cult_team.blood_target_image
@@ -336,8 +335,8 @@
 	if(ishuman(cultist))
 		var/mob/living/carbon/human/H = cultist
 		new /obj/effect/temp_visual/cult/sparks(get_turf(H), H.dir)
-		var/istate = pick("halo1","halo2","halo3","halo4","halo5","halo6")
-		H.add_overlay(mutable_appearance('icons/effects/32x64.dmi', istate, -ANTAG_LAYER))
+		var/istate = pick("halo[rand(1, 6)]")
+		H.add_overlay(mutable_appearance('icons/effects/32x64.dmi', istate, -FIRE_LAYER))
 
 /datum/team/cult/proc/setup_objectives()
 	//SAC OBJECTIVE , todo: move this to objective internals
@@ -411,9 +410,9 @@
 
 /datum/objective/sacrifice/update_explanation_text()
 	if(target)
-		explanation_text = "Sacrifice [target], the [target.assigned_role] via invoking a Sacrifice rune with [target.p_them()] on it and three acolytes around it."
+		explanation_text = "Принести в жертву [target], [target.assigned_role] с помощью руны жертвоприношения, жертвой на ней и тремя собратьями вокруг неё."
 	else
-		explanation_text = "The veil has already been weakened here, proceed to the final objective."
+		explanation_text = "Заслон уже была ослаблен, переходите к финальной цели."
 
 /datum/objective/eldergod
 	var/summoned = FALSE
@@ -430,7 +429,7 @@
 	update_explanation_text()
 
 /datum/objective/eldergod/update_explanation_text()
-	explanation_text = "Summon Nar'Sie by invoking the rune 'Summon Nar'Sie'. <b>The summoning can only be accomplished in [english_list(summon_spots)] - where the veil is weak enough for the ritual to begin.</b>"
+	explanation_text = "Вызвать Нар'Си с помощью руны. <b>Призыв может быть произведен только в следующих местах: [english_list(summon_spots)] - там, где заслон достаточно слаб, чтобы ритуал смог состояться.</b>"
 
 /datum/objective/eldergod/check_completion()
 	return summoned || completed

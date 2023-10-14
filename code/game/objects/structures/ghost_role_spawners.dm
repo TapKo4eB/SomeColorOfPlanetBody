@@ -7,6 +7,8 @@
 	name = "\improper Ghost Role"
 	job_rank = ROLE_GHOSTROLE
 	show_in_antagpanel = FALSE
+	soft_antag = FALSE
+	show_name_in_check_antagonists = FALSE
 	show_to_ghosts = TRUE
 	antagpanel_category = "Ghost Role"
 	var/datum/team/ghost_role/ghost_team
@@ -552,8 +554,8 @@
 	canloadappearance = TRUE
 
 /obj/effect/mob_spawn/human/solfed/demoman
-	name = "Solar Federation Demoman"
-	outfit = /datum/outfit/ert/sol_soldier_demo
+	name = "Solar Federation Support"
+	outfit = /datum/outfit/ert/sol_soldier_support
 
 /obj/effect/mob_spawn/human/solfed/field_officer
 	name = "Solar Federation Field Officer"
@@ -570,7 +572,7 @@
 	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
 	ears = /obj/item/radio/headset/syndicate/alt
 	back = /obj/item/storage/backpack
-	implants = list(/obj/item/implant/weapons_auth)
+	implants = list(/obj/item/implant/weapons_auth, /obj/item/implant/deathrattle, /obj/item/implant/explosive, /obj/item/implant/mindshield)
 	id = /obj/item/card/id/syndicate
 
 /datum/outfit/syndicate_empty/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE, client/preference_source)
@@ -609,6 +611,7 @@
 	suit_store = /obj/item/gun/ballistic/automatic/pistol
 	back = /obj/item/storage/backpack/security
 	mask = /obj/item/clothing/mask/gas/syndicate
+	l_hand = /obj/item/melee/transforming/energy/sword/saber/red
 
 /obj/effect/mob_spawn/human/syndicate/battlecruiser/captain
 	name = "Syndicate Battlecruiser Captain"
@@ -990,6 +993,12 @@
 	canloadappearance = TRUE
 	loadout_enabled = TRUE
 	computer_area = /area/ruin/space/has_grav/port_tarkon/centerhall
+
+// Не добавлено в аутфит, т.к. раса ставится ПОСЛЕ выставления аутфита
+/obj/effect/mob_spawn/human/tarkon/special_post_appearance(mob/living/carbon/human/new_spawn)
+	if(HAS_TRAIT(new_spawn, TRAIT_ROBOTIC_ORGANISM))
+		new_spawn.put_in_l_hand(new /obj/item/device/cooler/charged(new_spawn))
+	. = ..()
 
 /datum/outfit/tarkoff
 	name = "Default Port Tarkov Outfit"
@@ -1387,7 +1396,7 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/crowbar/red = 1,
-		)
+		/obj/item/lighter/gonzofist = 1)
 	id = /obj/item/card/id/syndicate/advanced/black/command
 	implants = list(/obj/item/implant/weapons_auth)
 	id_trim = /datum/id_trim/syndicom/ds2

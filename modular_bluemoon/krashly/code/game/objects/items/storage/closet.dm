@@ -25,7 +25,7 @@
 /obj/structure/closet/syndicate/inteq/personal_raider
 	desc = "It's a personal storage unit for operative gear."
 
-/obj/structure/closet/syndicate/inteq/personal_radider/PopulateContents()
+/obj/structure/closet/syndicate/inteq/personal_raider/PopulateContents()
 	..()
 	new /obj/item/clothing/under/inteq(src)
 	new /obj/item/clothing/under/inteq_skirt(src)

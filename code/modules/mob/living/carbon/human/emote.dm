@@ -220,7 +220,7 @@
 //rock paper scissors emote handling
 /mob/living/carbon/human/proc/beginRockPaperScissors(var/chosen_move)
 	GLOB.rockpaperscissors_players[src] = list(chosen_move, ROCKPAPERSCISSORS_NOT_DECIDED)
-	do_after_advanced(src, ROCKPAPERSCISSORS_TIME_LIMIT, src, DO_AFTER_REQUIRES_USER_ON_TURF|DO_AFTER_NO_COEFFICIENT|DO_AFTER_NO_PROGRESSBAR|DO_AFTER_DISALLOW_MOVING_ABSOLUTE_USER, CALLBACK(src, .proc/rockpaperscissors_tick))
+	do_after(src, ROCKPAPERSCISSORS_TIME_LIMIT, src, extra_checks = CALLBACK(src, .proc/rockpaperscissors_tick))
 	var/new_entry = GLOB.rockpaperscissors_players[src]
 	if(new_entry[2] == ROCKPAPERSCISSORS_NOT_DECIDED)
 		to_chat(src, "Вы опускаете руку.")
@@ -234,7 +234,7 @@
 			break
 	if(opponent)
 		//we found an opponent before they found us
-		var/move_to_number = list("Rock" = 0, "Paper" = 1, "Scissors" = 2)
+		var/move_to_number = list("rock" = 0, "paper" = 1, "scissors" = 2)
 		var/our_move = move_to_number[GLOB.rockpaperscissors_players[src][1]]
 		var/their_move = move_to_number[GLOB.rockpaperscissors_players[opponent][1]]
 		var/result_us = ROCKPAPERSCISSORS_WIN
@@ -262,10 +262,10 @@
 				src.visible_message("<b>[opponent]</b> побеждает!")
 
 		//make the progress bar end so that each player can handle the result
-		return DO_AFTER_STOP
+		return FALSE
 
 	//no opponent was found, so keep searching
-	return DO_AFTER_PROCEED
+	return TRUE
 
 //the actual emotes
 /datum/emote/living/carbon/human/rockpaperscissors

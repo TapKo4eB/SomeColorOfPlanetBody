@@ -194,7 +194,7 @@
 
 /datum/quirk/ropebunny
 	name = "Rope Bunny"
-	desc = "You have mastered all forms of bondage! You can create bondage rope out of cloth, and bondage bolas out of bondage rope!"
+	desc = "Вы обучены искусно вязать верёвки любой формы. Вы можете создавать веревку из ткани, а из этой веревки - болы!"
 	value = 2
 
 /datum/quirk/ropebunny/add()
@@ -218,7 +218,7 @@
 	mob_trait = TRAIT_HALLOWED
 	gain_text = span_notice("Вы чувствуете, как святая энергия начинает течь по вашему телу.")
 	lose_text = span_notice("Вы чувствуете, как угасает ваша святая энергия...")
-	medical_record_text = "Patient has unidentified hallowed material concentrated in their blood. Please consult a chaplain."
+	medical_record_text = "У пациента обнаружены неопознанные освященные материалы в крови. Проконсультируйтесь с капелланом."
 
 /datum/quirk/hallowed/add()
 	// Define quirk mob.
@@ -256,19 +256,19 @@
 /datum/quirk/hallowed/proc/quirk_examine_Hallowed(atom/examine_target, mob/living/carbon/human/examiner, list/examine_list)
 	examine_list += "[quirk_holder.ru_who(TRUE)] излучает священную силу..."
 
-/datum/quirk/bomber
-	name = "Подрывник-Самоубийца"
-	desc = "Благодаря своим связям с Красной Бригадой вы получили специальный имплант для самоуничтожения! Ну или почему-то вы решили ввести себе какую-то зелёную штуку из имплантера с мусорки и теперь вы научились делать что-то потрясное..."
-	value = 4
-
-/datum/quirk/bomber/add()
-	. = ..()
-	var/mob/living/carbon/human/H = quirk_holder
-	if (!H)
-		return
-	var/obj/item/implant/explosive/E = new
-	E.implant(H)
-	H.update_icons()
+///datum/quirk/bomber
+//	name = "Подрывник-Самоубийца"
+//	desc = "Благодаря своим связям с Красной Бригадой вы получили специальный имплант для самоуничтожения! Ну или почему-то вы решили ввести себе какую-то зелёную штуку из имплантера с мусорки и теперь вы научились делать что-то потрясное..."
+//	value = 4
+//
+///datum/quirk/bomber/add()
+//	. = ..()
+//	var/mob/living/carbon/human/H = quirk_holder
+//	if (!H)
+//		return
+//	var/obj/item/implant/explosive/E = new
+//	E.implant(H)
+//	H.update_icons()
 
 /datum/quirk/breathing_tube
 	name = "Трубка для Горлового Дыхания"

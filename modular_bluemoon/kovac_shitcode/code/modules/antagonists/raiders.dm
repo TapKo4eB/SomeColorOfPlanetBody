@@ -41,7 +41,7 @@
 	getbooty.team = src
 	for(var/obj/machinery/computer/piratepad_control/P in GLOB.machines)
 		var/area/A = get_area(P)
-		if(istype(A,/area/syndicate_mothership/inteq))
+		if(istype(A,/area/shuttle/inteq/collosus))
 			getbooty.cargo_hold = P
 			break
 	getbooty.update_explanation_text()
@@ -145,7 +145,7 @@
 	var/command_radio = FALSE
 
 /datum/outfit/inteq_raider/vanguard
-	name = "InteQ Vanguard Raider"
+	name = "InteQ Vanguard"
 	id = /obj/item/card/id/syndicate/anyone/inteq
 	suit = /obj/item/clothing/suit/armor/inteq/vanguard
 	head = /obj/item/clothing/head/HoS/inteq_vanguard
@@ -171,10 +171,13 @@
 	H.faction |= ROLE_INTEQ
 	H.update_icons()
 
-////// Shuttle (Krashly) ///////////
+/datum/outfit/inteq_raider/vanguard/honorable
+	name = "InteQ Honorable Vanguard"
+	suit = /obj/item/clothing/suit/armor/inteq/honorable_vanguard
+	head = /obj/item/clothing/head/HoS/inteq_honorable_vanguard
+	uniform = /obj/item/clothing/under/inteq_honorable_vanguard
 
-/area/syndicate_mothership/inteq
-	name = "InteQ Shuttle"
+////// Shuttle (Krashly) ///////////
 
 /datum/map_template/shuttle/inteq_collosus
 	prefix = "_maps/shuttles/bluemoon/"

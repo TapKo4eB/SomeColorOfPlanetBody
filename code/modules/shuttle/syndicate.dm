@@ -20,9 +20,8 @@
 /obj/machinery/computer/shuttle/syndicate/ui_act(action, params)
 	var/static/musiclimit = 0
 	if(!allowed(usr))
-		to_chat(usr, "<span class='danger'>Access denied.</span>")
+		to_chat(usr, "<span class='danger'>Доступ запрещён.</span>")
 		return
-
 	switch(action)
 		if("move")
 			if(istype(src, /obj/machinery/computer/shuttle/syndicate/drop_pod))
@@ -34,36 +33,18 @@
 				to_chat(usr, "<span class='warning'>You've issued a combat challenge to the station! You've got to give them at least [DisplayTimeText(SYNDICATE_CHALLENGE_TIMER - world.time)] more to allow them to prepare.</span>")
 				return
 			board.moved = TRUE
-
-			for(var/mob/M in GLOB.player_list)
-				if(musiclimit > 1)
-					return
-				SEND_SOUND(M, sound('modular_bluemoon/SmiLeY/sounds/Nuclear_Operations.ogg'))
-				musiclimit++
-
+			if(board?.challenge && board.moved == TRUE)
+				for(var/mob/M in GLOB.player_list)
+					if(musiclimit >= 1)
+						return
+					SEND_SOUND(M, sound('modular_bluemoon/SmiLeY/sounds/Nuclear_Operations.ogg'))
+					musiclimit++
 	return ..()
 
 /obj/machinery/computer/shuttle/syndicate/recall
 	name = "InteQ shuttle recall terminal"
 	desc = "Use this if your friends left you behind."
 	possible_destinations = "inteq_away"
-
-/obj/machinery/computer/shuttle/real_syndicate
-	name = "Syndicate Shuttle Terminal"
-	desc = "The terminal used to control the Syndicate transport shuttle."
-	circuit = /obj/item/circuitboard/computer/syndicate_shuttle
-	icon_screen = "syndishuttle"
-	icon_keyboard = "syndie_key"
-	light_color = COLOR_RED
-	req_access = list(ACCESS_SYNDICATE)
-	shuttleId = "real_syndicate"
-	possible_destinations = "syndicate_away;syndicate_z5;syndicate_ne;syndicate_nw;syndicate_n;syndicate_se;syndicate_sw;syndicate_s;real_syndicate_custom"
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
-
-/obj/machinery/computer/shuttle/real_syndicate/recall
-	name = "Syndicate shuttle recall terminal"
-	desc = "Use this if your friends left you behind."
-	possible_destinations = "syndicate_away"
 
 /obj/machinery/computer/shuttle/syndicate/drop_pod
 	name = "InteQ assault pod control"
@@ -84,22 +65,6 @@
 	shuttleId = "syndicate"
 	lock_override = CAMERA_LOCK_STATION
 	shuttlePortId = "syndicate_custom"
-	jumpto_ports = list("syndicate_ne" = 1, "syndicate_nw" = 1, "syndicate_n" = 1, "syndicate_se" = 1, "syndicate_sw" = 1, "syndicate_s" = 1)
-	view_range = 5.5
-	x_offset = -7
-	y_offset = -1
-	space_turfs_only = FALSE
-	whitelist_turfs = list(/turf/open/space, /turf/open/floor/plating, /turf/open/lava, /turf/closed/mineral)
-	see_hidden = TRUE
-
-/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/real_syndicate
-	name = "Syndicate Shuttle Navigation Computer"
-	desc = "Used to designate a precise transit location for the syndicate shuttle."
-	icon_screen = "syndishuttle"
-	icon_keyboard = "syndie_key"
-	shuttleId = "syndicate"
-	lock_override = CAMERA_LOCK_STATION
-	shuttlePortId = "real_syndicate_custom"
 	jumpto_ports = list("syndicate_ne" = 1, "syndicate_nw" = 1, "syndicate_n" = 1, "syndicate_se" = 1, "syndicate_sw" = 1, "syndicate_s" = 1)
 	view_range = 5.5
 	x_offset = -7

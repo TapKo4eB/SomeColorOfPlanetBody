@@ -4,6 +4,8 @@
 
 /obj/item/organ/eyes
 	name = BODY_ZONE_PRECISE_EYES
+	ru_name = "глаза"
+	ru_name_capital = "Глаза"
 	icon_state = "eyeballs"
 	desc = "I see you!"
 	zone = BODY_ZONE_PRECISE_EYES
@@ -421,6 +423,7 @@
 /obj/item/organ/eyes/ipc
 	name = "ipc eyes"
 	icon_state = "cybernetic_eyeballs"
+	organ_flags = ORGAN_SYNTHETIC // BLUEMOON ADD - органы синтетиков не должны гнить и должны быть подвержены ЭМИ
 
 /obj/item/organ/eyes/ipc/emp_act(severity)
 	. = ..()

@@ -225,7 +225,7 @@
 /datum/reagent/vaccine
 	//data must contain virus type
 	name = "Vaccine"
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	color = "#C81040" // rgb: 200, 16, 64
 	taste_description = "slime"
 
@@ -365,9 +365,9 @@
 	ADD_TRAIT(L, TRAIT_HOLY, type)
 
 	if(is_servant_of_ratvar(L))
-		to_chat(L, "<span class='userdanger'>A fog spreads through your mind, purging the Justiciar's influence!</span>")
+		to_chat(L, "<span class='userdanger'>Священный Туман распространяется по вашему сознанию, ослабляя связь с Жёлтым Измерением и очищая вас от влияния Юстициара Ратвара!</span>")
 	else if(iscultist(L))
-		to_chat(L, "<span class='userdanger'>A fog spreads through your mind, weakening your connection to the veil and purging Nar-sie's influence</span>")
+		to_chat(L, "<span class='userdanger'>Священный Туман распространяется по вашему сознанию, ослабляя связь с Красным Измерением и очищая вас от влияния Нар-Си</span>")
 
 /datum/reagent/water/holywater/on_mob_end_metabolize(mob/living/L)
 	REMOVE_TRAIT(L, TRAIT_HOLY, type)
@@ -387,7 +387,7 @@
 		for(var/datum/action/innate/cult/blood_magic/BM in M.actions)
 			if(!BM.holy_dispel)
 				BM.holy_dispel = TRUE
-				to_chat(M, "<span class='cultlarge'>Your blood rites falter as holy water scours your body!</span>")
+				to_chat(M, "<span class='cultlarge'>Ваша Кровавая Связь обрывается, когда святая вода попадает в ваше тело!</span>")
 				for(var/datum/action/innate/cult/blood_spell/BS in BM.spells)
 					qdel(BS)
 	if(data["misc"] >= 25)		// 10 units, 45 seconds @ metabolism 0.4 units & tick rate 1.8 sec
@@ -398,10 +398,10 @@
 		if(iscultist(M) && prob(20))
 			M.say(pick("Av'te Nar'Sie","Pa'lid Mors","INO INO ORA ANA","SAT ANA!","Daim'niodeis Arc'iai Le'eones","R'ge Na'sie","Diabo us Vo'iscum","Eld' Mon Nobis"), forced = "holy water")
 			if(prob(10))
-				M.visible_message("<span class='danger'>[M] starts having a seizure!</span>", "<span class='userdanger'>You have a seizure!</span>")
+				M.visible_message("<span class='danger'>[M] падает в припадке!</span>", "<span class='userdanger'>У вас начался припадок!</span>")
 				M.Unconscious(120)
-				to_chat(M, "<span class='cultlarge'>[pick("Your blood is your bond - you are nothing without it", "Do not forget your place", \
-				"All that power, and you still fail?", "If you cannot scour this poison, I shall scour your meager life!")].</span>")
+				to_chat(M, "<span class='cultlarge'>[pick("Ваша кровь - это ваша связь. Без нее вы никто!", "Не забывай своё место, дитя.", \
+				"Столько сил, а вы все равно не справляетесь?", "Если ты не сможешь очистить себя от этой отраву, я очищу твою скудную жизнь!")].</span>")
 		else if(is_servant_of_ratvar(M) && prob(8))
 			switch(pick("speech", "message", "emote"))
 				if("speech")
@@ -482,7 +482,7 @@
 	name = "Hell Water"
 	description = "YOUR FLESH! IT BURNS!"
 	taste_description = "burning"
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	value = REAGENT_VALUE_VERY_RARE
 
 /datum/reagent/hellwater/on_mob_life(mob/living/carbon/M)
@@ -550,7 +550,7 @@
 /datum/reagent/lube
 	name = "Space Lube"
 	description = "Lubricant is a substance introduced between two moving surfaces to reduce the friction and wear between them. giggity."
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	color = "#009CA8" // rgb: 0, 156, 168
 	taste_description = "cherry" // by popular demand
 	boiling_point = 330
@@ -664,7 +664,7 @@
 	description = "A humanizing toxin."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	metabolization_rate = INFINITY //So it instantly removes all of itself
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	taste_description = "slime"
 	value = REAGENT_VALUE_RARE
 	var/datum/species/race = /datum/species/human
@@ -829,7 +829,7 @@
 /datum/reagent/slime_toxin
 	name = "Slime Mutation Toxin"
 	description = "A toxin that turns organic material into slime."
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	taste_description = "slime"
 	metabolization_rate = 0.2
@@ -869,7 +869,7 @@
 	description = "This toxin will rapidly change the DNA of human beings. Commonly used by Syndicate spies and assassins in need of an emergency ID change."
 	color = "#5EFF3B" //RGB: 94, 255, 59
 	metabolization_rate = INFINITY
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	taste_description = "slime"
 	value = REAGENT_VALUE_RARE
 
@@ -1120,7 +1120,7 @@
 /datum/reagent/space_cleaner/sterilizine
 	name = "Sterilizine"
 	description = "Sterilizes wounds in preparation for surgery."
-	chemical_flags = REAGENT_ALL_PROCESS
+	chemical_flags = REAGENT_ALL_PROCESS //todo
 	color = "#e6f1f5" // rgb: 200, 165, 220
 	taste_description = "bitterness"
 	pH = 10.5
@@ -1147,7 +1147,7 @@
 	reagent_state = SOLID
 	taste_description = "iron"
 	pH = 6
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	overdose_threshold = 30
 	color = "#c2391d"
 
@@ -1380,7 +1380,7 @@
 	name = "EZ Clean"
 	description = "A powerful, acidic cleaner sold by Waffle Co. Affects organic matter while leaving other objects unaffected."
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
-	chemical_flags = REAGENT_ALL_PROCESS
+	chemical_flags = REAGENT_ALL_PROCESS //todo damage to synth
 	taste_description = "acid"
 	pH = 2
 	value = REAGENT_VALUE_RARE
@@ -1585,7 +1585,7 @@
 	reagent_state = GAS
 	gas = GAS_STIMULUM
 	metabolization_rate = 1.5 * REAGENTS_METABOLISM
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	color = "E1A116"
 	boiling_point = 150
 	taste_description = "sourness"
@@ -2164,7 +2164,7 @@
 	color = "#123524" // RGB (18, 53, 36)
 	metabolization_rate = INFINITY
 	can_synth = FALSE
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	taste_description = "brains"
 	pH = 0.5
 	value = REAGENT_VALUE_GLORIOUS
@@ -2180,7 +2180,7 @@
 	name = "Magillitis"
 	description = "An experimental serum which causes rapid muscular growth in Hominidae. Side-affects may include hypertrichosis, violent outbursts, and an unending affinity for bananas."
 	reagent_state = LIQUID
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	color = "#00f041"
 	value = REAGENT_VALUE_EXCEPTIONAL
 
@@ -2284,7 +2284,7 @@
 	color = "#FAFF00"
 	taste_description = "acrid cinnamon"
 	metabolization_rate = 0.2 * REAGENTS_METABOLISM
-	chemical_flags = REAGENT_ALL_PROCESS	//Sorry robot lings, but you still get this.
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	value = REAGENT_VALUE_UNCOMMON
 
 /datum/reagent/bz_metabolites/on_mob_metabolize(mob/living/L)
@@ -2359,9 +2359,23 @@
 	value = REAGENT_VALUE_UNCOMMON
 
 /datum/reagent/moonsugar/on_mob_life(mob/living/carbon/M)
-	if(prob(20))
-		to_chat(M, "You find yourself unable to supress the desire to meow!")
-		M.emote("nya")
+	if(iscatperson(M)) //"drugs" for felinids
+		M.set_drugginess(30)
+		if(prob(20))
+			to_chat(M, "<span class = 'notice'>[pick("Headpats feel nice.", "The feeling of a hairball...", "Backrubs would be nice.", "Whats behind those doors?", "Wanna huuugs~", "Pat me pleeease~", "That corner looks suspicious...", "Rub my belly pleeease~")]</span>")
+		if(prob(20))
+			M.nextsoundemote = world.time - 10 //"too early BZHZHZH"
+			M.emote(pick("nya","mewo","meow","purr","anyo","uwu","stare","spin"))
+		if((istype(M) && M.dna && M.dna.species && M.dna.species.can_wag_tail(M)) && !M.dna.species.is_wagging_tail())
+			M.emote("wag")
+		if(prob(5))
+			M.emote("spin")
+			M.lay_down()
+			to_chat(M, "<span class = 'notice'>[pick("Wanna reeest~","Waaaw~","Wanna plaaay!~","Play with meee~")]</span>")
+	else
+		if(prob(20))
+			to_chat(M, "You find yourself unable to supress the desire to meow!")
+			M.emote("nya")
 	..()
 
 /datum/reagent/changeling_string
@@ -2410,12 +2424,31 @@
 	description = "A colorless liquid that makes people more peaceful and felines more happy."
 	metabolization_rate = 1.75 * REAGENTS_METABOLISM
 	value = REAGENT_VALUE_COMMON
+	pH = 8
+	glass_icon_state = "glass_cucumber"
+	glass_name = "glass of catnip"
+	glass_desc = "Cup of hapiness for felinids"
+	shot_glass_icon_state = "shotglassgreen"
 
 /datum/reagent/pax/catnip/on_mob_life(mob/living/carbon/M)
-	if(prob(20))
-		M.emote("nya")
-	if(prob(20))
-		to_chat(M, "<span class = 'notice'>[pick("Headpats feel nice.", "The feeling of a hairball...", "Backrubs would be nice.", "Whats behind those doors?")]</span>")
+	if(iscatperson(M)) //"drugs" for felinids
+		M.set_drugginess(30)
+		if(prob(20))
+			to_chat(M, "<span class = 'notice'>[pick("Headpats feel nice.", "The feeling of a hairball...", "Backrubs would be nice.", "Whats behind those doors?", "Wanna huuugs~", "Pat me pleeease~", "That corner looks suspicious...", "Rub my belly pleeease~")]</span>")
+		if(prob(20))
+			M.nextsoundemote = world.time - 10 //"too early BZHZHZH"
+			M.emote(pick("nya","mewo","meow","purr","anyo","uwu","stare","spin"))
+		if((istype(M) && M.dna && M.dna.species && M.dna.species.can_wag_tail(M)) && !M.dna.species.is_wagging_tail())
+			M.emote("wag")
+		if(prob(5))
+			M.emote("spin")
+			M.lay_down()
+			to_chat(M, "<span class = 'notice'>[pick("Wanna reeest~","Waaaw~","Wanna plaaay!~","Play with meee~")]</span>")
+	else
+		if(prob(20))
+			M.emote("nya")
+		if(prob(20))
+			to_chat(M, "<span class = 'notice'>[pick("Headpats feel nice.", "The feeling of a hairball...", "Backrubs would be nice.", "Whats behind those doors?")]</span>")
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		var/list/adjusted = H.adjust_arousal(2,"catnip", aphro = TRUE)
@@ -2429,7 +2462,7 @@
 	description = "A powerful preservation agent, utilizing the preservative effects of formaldehyde with significantly less of the histamine."
 	reagent_state = LIQUID
 	color = "#f7685e"
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	metabolization_rate = REAGENTS_METABOLISM * 0.25
 
 
@@ -2565,7 +2598,7 @@
 	reagent_state = LIQUID
 	color = "#D2FFFA"
 	metabolization_rate = 0.75 * REAGENTS_METABOLISM // 5u (WOUND_DETERMINATION_CRITICAL) will last for ~17 ticks
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	/// Whether we've had at least WOUND_DETERMINATION_SEVERE (2.5u) of determination at any given time. No damage slowdown immunity or indication we're having a second wind if it's just a single moderate wound
 	var/significant = FALSE
 	self_consuming = TRUE
@@ -2599,7 +2632,7 @@
 	name = "Eldritch Essence"
 	description = "Strange liquid that defies the laws of physics"
 	taste_description = "Ag'hsj'saje'sh"
-	chemical_flags = REAGENT_ALL_PROCESS
+//	chemical_flags = REAGENT_ALL_PROCESS (BLUEMOON REMOVAL - роботы не должны получать эффекты реагента)
 	color = "#1f8016"
 
 /datum/reagent/eldritch/on_mob_life(mob/living/carbon/M)

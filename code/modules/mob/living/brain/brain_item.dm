@@ -1,5 +1,7 @@
 /obj/item/organ/brain
 	name = "brain"
+	ru_name = "мозг"
+	ru_name_capital = "Мозг"
 	desc = "A piece of juicy meat found in a person's head."
 	icon_state = "brain"
 	throw_speed = 3
@@ -127,7 +129,7 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] starts to pour the contents of [O] onto [src].</span>", "<span class='notice'>You start to slowly pour the contents of [O] onto [src].</span>")
-		if(!do_after(user, 60, TRUE, src))
+		if(!do_after(user, 6 SECONDS, src))
 			to_chat(user, "<span class='warning'>You failed to pour [O] onto [src]!</span>")
 			return
 
@@ -157,7 +159,7 @@
 			return
 
 		user.visible_message("<span class='notice'>[user] starts to pour the contents of [O] onto [src].</span>", "<span class='notice'>You start to slowly pour the contents of [O] onto [src].</span>")
-		if(!do_after(user, 60, TRUE, src))
+		if(!do_after(user, 6 SECONDS, src))
 			to_chat(user, "<span class='warning'>You failed to pour [O] onto [src]!</span>")
 			return
 
@@ -302,6 +304,7 @@
 	desc = "A cube of shining metal, four inches to a side and covered in shallow grooves. It has an IPC serial number engraved on the top. It is usually slotted into the head of synthetic crewmembers."
 	icon = 'icons/obj/surgery.dmi'
 	icon_state = "posibrain-ipc"
+	organ_flags = ORGAN_NO_SPOIL // BLUEMOON ADD - мозг синтетиков не должен гнить, но если сделать его синтетическим, то он может полностью сломаться от ЭМИ (а там только замена). Так что такой флаг
 
 /obj/item/organ/brain/slime
 	name = "slime nucleus"

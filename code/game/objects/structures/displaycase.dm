@@ -112,7 +112,7 @@
 			to_chat(user,  "<span class='notice'>You [open ? "close":"open"] [src].</span>")
 			toggle_lock(user)
 		else
-			to_chat(user,  "<span class='warning'>Access denied.</span>")
+			to_chat(user,  "<span class='warning'>Доступ запрещён.</span>")
 	else if(W.tool_behaviour == TOOL_WELDER && user.a_intent == INTENT_HELP && !broken)
 		if(obj_integrity < max_integrity)
 			if(!W.tool_start_check(user, amount=5))
@@ -353,7 +353,7 @@
 /obj/structure/displaycase/forsale
 	name = "vend-a-tray"
 	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "laserbox0"
+	icon_state = "laserbox"
 	custom_glass_overlay = TRUE
 	desc = "A display case with an ID-card swiper. Use your ID to purchase the contents."
 	density = FALSE
@@ -548,6 +548,7 @@
 	. = ..()
 	payments_acc = null
 	req_access = list()
+	log_admin("[key_name(usr)] emagged [src] at [AREACOORD(src)]")
 	to_chat(user, "<span class='warning'>[src]'s card reader fizzles and smokes, and the account owner is reset.</span>")
 
 /obj/structure/displaycase/forsale/examine(mob/user)
