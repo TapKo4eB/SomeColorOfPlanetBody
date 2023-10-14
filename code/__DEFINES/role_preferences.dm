@@ -53,6 +53,9 @@
 #define ROLE_MINOR_ANTAG			"minorantag"
 #define ROLE_RESPAWN				"respawnsystem"
 #define ROLE_SYNDICATE				"Syndicate"
+#define ROLE_SHADOWLING             "shadowling"
+#define ROLE_SHADOWLING_THRALL      "thrall"
+
 //Define for disabling individual antagonists for dynamic
 #define HAS_ANTAG_PREF(C,ROLE) (!(NO_ANTAG & C.prefs.toggles) && (ROLE in C.prefs.be_special))
 //Missing assignment means it's not a gamemode specific role, IT'S NOT A BUG OR ERROR.
@@ -87,7 +90,9 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_FAMILIES = /datum/game_mode/gang,
 	ROLE_SPACE_DRAGON,
 	ROLE_TERROR_SPIDER,
-	ROLE_SYNDICATE
+	ROLE_SYNDICATE,
+	ROLE_SHADOWLING,
+	ROLE_SHADOWLING_THRALL
 	//ROLE_MONSTERHUNTER Disabled for now
 ))
 

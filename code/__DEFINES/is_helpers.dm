@@ -59,6 +59,8 @@ GLOBAL_LIST_INIT(turfs_without_ground, typecacheof(list(
 #define ishuman(A) (istype(A, /mob/living/carbon/human))
 
 //Human sub-species
+#define isshadowling(A) (is_species(A, /datum/species/shadowling))
+#define isshadowlinglesser(A) (is_species(A, /datum/species/shadowling/lesser))
 #define isabductor(A) (is_species(A, /datum/species/abductor))
 #define isgolem(A) (is_species(A, /datum/species/golem))
 #define isclockworkgolem(A) (is_species(A, /datum/species/golem/clockwork/no_scrap))

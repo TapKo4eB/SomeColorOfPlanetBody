@@ -31,6 +31,7 @@
 	#define SPECIES_POD_WEAK		"podweak"
 #define SPECIES_SHADOW				"shadow"
 	#define SPECIES_NIGHTMARE		"nightmare"
+	#define SPECIES_SHADOWLING		"shadowling"
 #define SPECIES_SKELETON			"skeleton"
 	#define SPECIES_SKELETON_SPACE	"spaceskeleton"
 #define SPECIES_SYNTH_LIZARD		"synthliz"
